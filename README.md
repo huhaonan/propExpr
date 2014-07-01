@@ -7,9 +7,9 @@ expression like 'person1.array[0].name.first_name[0]'
 
 it will populate the property of the corresponding property.
 
-person1 
-|--array[0]
-|   |--name
+person1<br/> 
+|--array[0]<br/>
+|&nbsp;&nbsp;|--name<br/>
 |   |   |--first_name[0]    <-- target
 |   |   |--first_name[..]
 |   |   |--first_name[n]
