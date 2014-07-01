@@ -1,3 +1,4 @@
+package parser;
 
 public class SequencialPropertyExprParser implements IPropertyExprParser{
 	
@@ -8,7 +9,7 @@ public class SequencialPropertyExprParser implements IPropertyExprParser{
 		int error = 0;
 		for(char c: chars) {
 			if(isEgalChar(c)) {
-				if(isAlpahNumberic(c) || isLeftBarket(c) || isRightBarket(c)) {
+				if(isAlpahNumberic(c) || isLeftBarket(c) || isRightBarket(c) || isUnderscore(c)) {
 					cache[pos++] = c;
 				} else if(isDot(c)) {
 					// evaluate
@@ -38,7 +39,7 @@ public class SequencialPropertyExprParser implements IPropertyExprParser{
 	}
 	
 	private boolean isEgalChar(char c) {
-		return isAlpahNumberic(c) || isLeftBarket(c) || isRightBarket(c) || isDot(c);
+		return isAlpahNumberic(c) || isLeftBarket(c) || isRightBarket(c) || isDot(c) || isUnderscore(c);
 	}
 	
 	private boolean isAlpahNumberic(char c) {
@@ -61,6 +62,10 @@ public class SequencialPropertyExprParser implements IPropertyExprParser{
 		return c >= '0' && c <= '9';
 	}
 	
+	private boolean isUnderscore(char c) {
+		return c == '_';
+	}
+	
 //	private boolean isAlpha(char c) {
 //		return (c >= 'a' && c <= 'z') 
 //			|| (c >= 'A' && c <= 'Z');
@@ -69,7 +74,7 @@ public class SequencialPropertyExprParser implements IPropertyExprParser{
 	private int eval(char[] cache, int pos) {
 		int i = 0;
 		char[] tmp = new char[100];
-		while(i<pos && isAlpahNumberic(cache[i])) {
+		while(i<pos && (isAlpahNumberic(cache[i]) || isUnderscore(cache[i]) ) ) {
 			tmp[i] = cache[i];
 			i++;
 		}
@@ -116,7 +121,7 @@ public class SequencialPropertyExprParser implements IPropertyExprParser{
 	}
 	
 	public static void main(String[] args) {
-		new SequencialPropertyExprParser().parse("a.d9.x[0].xy.b[10].c[0].d000000000000000");
+		new SequencialPropertyExprParser().parse("a_.d_9.x[0].xy.b[10].c[0].d000000000000000");
 	}
 	
 }
