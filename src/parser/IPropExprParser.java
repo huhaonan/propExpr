@@ -1,6 +1,6 @@
 package parser;
 
-public interface IPropertyExprParser {
+public interface IPropExprParser {
 	
 	void parse(String expr);
 }

@@ -3,7 +3,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class PatternPropertyExprParser implements IPropertyExprParser {
+public class PatternPropExprParser implements IPropExprParser {
 
 	final static Pattern p1 = Pattern.compile("([a-zA-Z]+[a-zA-Z0-9_]*)");
 	
@@ -43,6 +43,6 @@ public class PatternPropertyExprParser implements IPropertyExprParser {
 	}
 	
 	public static void main(String[] args) {
-		new PatternPropertyExprParser().parse("a.b");
+		new PatternPropExprParser().parse("a.b");
 	}
 }

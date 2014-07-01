@@ -1,6 +1,6 @@
 package parser;
 
-public class SequencialPropertyExprParser implements IPropertyExprParser{
+public class SequencialPropExprParser implements IPropExprParser{
 	
 	public void parse(String expr) {
 		char[] chars = expr.toCharArray();
@@ -121,7 +121,7 @@ public class SequencialPropertyExprParser implements IPropertyExprParser{
 	}
 	
 	public static void main(String[] args) {
-		new SequencialPropertyExprParser().parse("a_.d_9.x[0].xy.b[10].c[0].d000000000000000");
+		new SequencialPropExprParser().parse("a_.d_9.x[0].xy.b[10].c[0].d000000000000000");
 	}
 	
 }
