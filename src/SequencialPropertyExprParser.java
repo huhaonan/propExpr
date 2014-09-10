@@ -88,7 +88,9 @@ public class SequencialPropertyExprParser implements IPropertyExprParser{
 			//     ^ ^     ^
 			//     | |     |
 			//     i |     |
-			// 		 j    POS-1
+			//       j     k
+			//
+			// (k == pos -1)
 			int j = i+1;
 			while(j<pos-1) {
 				if(!isDigit(cache[j])) {
